@@ -1,0 +1,10 @@
+CUDA_VISIBLE_DEVICES=0 pythno3 eval_parallel.py 008-bg 2 0
+CUDA_VISIBLE_DEVICES=0 pythno3 eval_parallel.py 008-bg 2 1
+CUDA_VISIBLE_DEVICES=1 pythno3 eval_parallel.py 009-bg 4 0
+CUDA_VISIBLE_DEVICES=1 pythno3 eval_parallel.py 009-bg 4 1
+CUDA_VISIBLE_DEVICES=2 pythno3 eval_parallel.py 009-bg 4 2
+CUDA_VISIBLE_DEVICES=2 pythno3 eval_parallel.py 009-bg 4 3
+CUDA_VISIBLE_DEVICES=3 pythno3 eval_parallel.py 010-bg 4 0
+CUDA_VISIBLE_DEVICES=3 pythno3 eval_parallel.py 010-bg 4 1
+CUDA_VISIBLE_DEVICES=4 pythno3 eval_parallel.py 010-bg 4 2
+CUDA_VISIBLE_DEVICES=4 pythno3 eval_parallel.py 010-bg 4 3
