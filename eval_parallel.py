@@ -15,8 +15,8 @@ from utils import ensure_folder
 IMG_FOLDER = 'data/image/{}'.format(sys.argv[1])
 TRIMAP_FOLDER = 'data/trimap/{}'.format(sys.argv[1])
 OUTPUT_FOLDER = 'output/{}'.format(sys.argv[1])
-num_split = sys.argv[2]
-split_id = sys.argv[3]
+num_split = int(sys.argv[2])
+split_id = int(sys.argv[3])
 
 
 if __name__ == '__main__':
@@ -41,6 +41,8 @@ if __name__ == '__main__':
 
         filename = os.path.join(IMG_FOLDER, file)
         img = cv.imread(filename)
+        if img is None:
+            continue
         h, w = img.shape[:2]
 
         x = torch.zeros((1, 4, h, w), dtype=torch.float)
@@ -52,6 +54,8 @@ if __name__ == '__main__':
         filename = os.path.join(TRIMAP_FOLDER, file)
         print('reading {}...'.format(filename))
         trimap = cv.imread(filename, 0)
+        if trimap is None:
+            continue
         x[0:, 3, :, :] = torch.from_numpy(trimap.copy() / 255.)
 
         # Move to GPU, if available
